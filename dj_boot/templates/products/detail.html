@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+##############################################
+{% block title %}
+{{ object.title }} - {{ block.super }}
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>{{ object.title }}</h1>
+
+{% if request.path != "/" %}
+    <h3>Welcome buddy</h3>
+{% else %}
+    {% include "products/detail_snippet.html" with 
+    product = object %}
+{% endif %}
+{% endblock content %}
+##############################################
